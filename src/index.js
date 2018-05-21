@@ -4,8 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 
-import App from './containers/App';
+// import App from './containers/App';
 import reducer from './reducers';
+
+const App = () => <h1>Hello, world!</h1>;
 
 const middleware = applyMiddleware(createLogger());
 const store = createStore(reducer, middleware);
