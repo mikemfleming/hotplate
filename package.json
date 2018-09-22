@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/.bin/webpack --progress --colors --watch",
-    "dev": "./node_modules/.bin/nodemon -e js,html"
+    "dev": "./node_modules/.bin/nodemon -e js,html",
+    "proxy": "./node_modules/ngrok/bin/ngrok http 8080"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
@@ -21,9 +23,14 @@
     "body-parser": "^1.18.3",
     "browser-sync": "^2.24.7",
     "browserify": "^16.2.2",
+    "connect-redis": "^3.3.3",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "helmet": "^3.13.0",
+    "ngrok": "^3.0.1",
     "passport": "^0.4.0",
     "passport-slack": "0.0.7",
     "pino": "^4.17.6",
@@ -35,13 +42,15 @@
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "redis": "^2.8.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^3.4.9",
     "webpack": "^4.19.1",
-    "webpack-cli": "^2.1.5"
+    "webpack-cli": "^2.1.5",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "browser-sync-webpack-plugin": "^2.2.2",
