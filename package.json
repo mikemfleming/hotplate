@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/.bin/webpack --progress --colors --watch",
     "dev": "./node_modules/.bin/nodemon -e js,html",
-    "proxy": "./node_modules/ngrok/bin/ngrok http 8080"
+    "proxy": "./node_modules/ngrok/bin/ngrok http -subdomain=shoutoutz 8080"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "helmet": "^3.13.0",
+    "morgan": "^1.9.1",
     "ngrok": "^3.0.1",
     "passport": "^0.4.0",
     "passport-slack": "0.0.7",
