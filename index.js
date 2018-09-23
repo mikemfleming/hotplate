@@ -1,13 +1,26 @@
+require('dotenv').config();
+
 const express = require('express');
-const path = require('path');
-const log = require('./logger');
-const pino = require('pino-http')({ logger: log });
+const { PORT, SESSION_SECRET } = process.env;
+const helmet = require('helmet');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const redisClient = require('./config/redis.config');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const morgan = require('morgan');
 
 const app = express();
 
-app.use(pino);
+app.use(helmet());
+app.use(morgan('tiny'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({
+	store: new RedisStore({ client: redisClient, ttl: 260 }),
+	secret: SESSION_SECRET,
+}));
 
-app.get('*/script.js', (req, res) => res.sendFile(path.join(__dirname, 'dist/bundle.js')));
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, './index.html')));
+require('./routes')(app);
 
-app.listen(4000, () => log.info('listening on 4000'));
+app.listen(PORT, () => console.log(`shoutoutz is listening on port ${PORT}`));
