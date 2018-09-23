@@ -25,9 +25,6 @@ exports.callback = (req, res) => {
 	if (false) {
 		res.json({ error: 'state mismatch', state, storedState });
 	} else {
-		// res.clearCookie(stateKey);
-
-		// get slack details
 		apiUtil.request({
 			url: 'https://slack.com/api/oauth.access',
 			method: 'GET',
@@ -37,8 +34,15 @@ exports.callback = (req, res) => {
 				code,
 			},
 		}).then(data => {
-			req.session.user = data.user;
-			res.redirect('/');
+			// https://stackoverflow.com/questions/50971247/expected-behaviour-of-sign-in-with-slack
+			apiUtil.request({
+				url: `https://slack.com/api/users.identity?token=${data.access_token}`,
+				method: 'GET',
+			}).then(data => {
+				data.user.teamId = data.team.id;
+				req.session.user = data.user;
+				res.redirect('/');
+			})
 		})
 	}
 };

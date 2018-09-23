@@ -24,17 +24,33 @@ app.use(session({
 	secret: 'SUPER_SESSION_SECRET',
 }));
 
+function isLoggedIn (req, res, next) {
+	if (req.session.user) {
+		next();
+	} else {
+		res.sendStatus(401);
+	}
+}
+
 app.get('/', (req, res) => {
 	// console.log('⭐️ req.session', req.session);
 	// console.log('⭐️ req.cookie', req.cookies);
 	if (req.session.user) {
-		res.json(req.session.user);
+		console.log('⭐️ req.session', req.session);
+		res.sendFile(path.join(__dirname, './app.html'));
 	} else {
 		res.sendFile(path.join(__dirname, './auth.html'));
 	}
 });
 app.get('/authorize/slack/redirect', slackAuth.authorize);
 app.get('/authorize/slack/callback', slackAuth.callback);
+app.get('/logout', (req, res) => {
+	delete req.session.user;
+	res.redirect('/');
+});
+
+// api stuff
+app.get('/api', isLoggedIn, (req, res) => res.json(req.session.user))
 
 app.get('*/script.js', (req, res) => res.sendFile(path.join(__dirname, 'dist/bundle.js')));
 
