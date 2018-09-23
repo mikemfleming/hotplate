@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import apiUtil from '../api.util';
+import apiUtil from '../util/api.util';
 
 // import App from './containers/App';
 import reducer from './reducers';
@@ -16,7 +16,7 @@ class App extends React.Component {
 	componentWillMount () {
 		console.log('callin!')
 		apiUtil.request({
-			url: '/api',
+			url: '/api/helloWorld',
 			method: 'GET',
 		}).then(data => this.setState({ data }));
 	}

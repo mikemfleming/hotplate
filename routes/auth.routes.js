@@ -2,13 +2,14 @@ const randomstring = require('randomstring');
 const qs = require('querystring');
 const { CLIENT_ID, CLIENT_SECRET } = process.env;
 const stateKey = 'slack_auth_state'; // confirms req is from slack
-const apiUtil = require('./api.util');
+const apiUtil = require('../util/api.util');
 
 exports.authorize = (req, res) => {
 	const state = randomstring.generate(16);
 	const query = qs.stringify({
 		client_id: CLIENT_ID,
 		scope: 'identity.basic',
+		redirect_uri: 'https://shoutoutz.ngrok.io/authorize/slack/callback',
 		state,
 	});
 
@@ -45,4 +46,9 @@ exports.callback = (req, res) => {
 			})
 		})
 	}
+};
+
+exports.logout = (req, res) => {
+	delete req.session.user;
+	res.redirect('/');
 };
