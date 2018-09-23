@@ -1,6 +1,6 @@
 const randomstring = require('randomstring');
 const qs = require('querystring');
-const { CLIENT_ID, CLIENT_SECRET } = process.env;
+const { CLIENT_ID, CLIENT_SECRET, TEAM_ID } = process.env;
 const stateKey = 'slack_auth_state'; // confirms req is from slack
 const apiUtil = require('../util/api.util');
 
@@ -11,6 +11,7 @@ exports.authorize = (req, res) => {
 		scope: 'identity.basic',
 		redirect_uri: 'https://shoutoutz.ngrok.io/authorize/slack/callback',
 		state,
+		team: TEAM_ID, // if not saatva, throws error in response
 	});
 
 	res.cookie(stateKey, state);
