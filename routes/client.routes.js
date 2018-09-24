@@ -6,9 +6,19 @@ function htmlTemplate (user) {
 		<!DOCTYPE html>
 		<head>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<style>
+				body {
+					margin: 0;
+					padding: 0;
+					border: 0;
+					font-size: 100%;
+					font: inherit;
+					vertical-align: baseline;
+				}
+			</style>
 		</head>
 		<html>
-			<body>
+			<body style="">
 				<script>
 					(function () {
 						window.stateData = {
@@ -27,9 +37,10 @@ function htmlTemplate (user) {
 }
 
 exports.root = (req, res) => {
-	if (req.session.user) {
+	// if (req.session.user) {
+	if (true) {
 		console.log('⭐️ req.session', req.session);
-
+		req.session.user = { name: 'Mike Fleming', id: 'UCTT63W6S', teamId: 'T0SU2LUKU' }
 		res.writeHead( 200, { "Content-Type": "text/html" } );
 		res.end(htmlTemplate(req.session.user));
 	} else {
