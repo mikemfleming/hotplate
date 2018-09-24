@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
 
 // first make a new context
 export const MyContext = React.createContext();
@@ -12,33 +13,7 @@ export class MyProvider extends Component {
 			userName: '',
 			userId: '',
 			teamId: '',
-			shoutouts: [
-				{
-					giver: 'Ebru',
-					getter: 'Rui',
-					message: 'great job!'
-				},
-				{
-					giver: 'Ebru',
-					getter: 'Rui',
-					message: 'great job!'
-				},
-				{
-					giver: 'Ebru',
-					getter: 'Rui',
-					message: 'great job!'
-				},
-				{
-					giver: 'Ebru',
-					getter: 'Rui',
-					message: 'great job!'
-				},
-				{
-					giver: 'Ebru',
-					getter: 'Rui',
-					message: 'great job!'
-				},
-			],
+			shoutouts: [],
 		}
     }
     
@@ -48,6 +23,14 @@ export class MyProvider extends Component {
 			userId: window.stateData.userId,
 			teamId: window.stateData.teamId,
 		});
+	}
+
+	componentDidMount () {
+		axios.get('/api/shoutouts')
+			.then(res => res.data)
+			.then(({ data }) => {
+				this.setState({ shoutouts: data });
+			});
 	}
 
 	render () {

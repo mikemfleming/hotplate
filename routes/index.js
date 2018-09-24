@@ -10,5 +10,6 @@ module.exports = (app) => {
 	app.get('/authorize/slack/redirect', auth.authorize);
 	app.get('/authorize/slack/callback', auth.callback);
 	app.get('/logout', auth.logout);
-	app.use('/api', middleware.isLoggedIn, api);
+	// app.use('/api', middleware.isLoggedIn, api);
+	app.use('/api', api);
 };

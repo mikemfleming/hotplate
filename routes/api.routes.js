@@ -2,6 +2,34 @@
 const { Router } = require('express');
 const api = Router();
 
-api.get('/:userId', (req, res) => res.json(req.params.userId));
+const apiUtil = require('../util/api.util');
+
+api.get('/shoutouts', (req, res) => apiUtil.respond(res, [
+    {
+        giver: 'Ebru',
+        getter: 'Rui',
+        message: 'great job from the server!'
+    },
+    {
+        giver: 'Ebru',
+        getter: 'Rui',
+        message: 'great job from the server!'
+    },
+    {
+        giver: 'Ebru',
+        getter: 'Rui',
+        message: 'great job from the server!'
+    },
+    {
+        giver: 'Ebru',
+        getter: 'Rui',
+        message: 'great job from the server!'
+    },
+    {
+        giver: 'Ebru',
+        getter: 'Rui',
+        message: 'great job from the server!'
+    },
+]));
 
 module.exports = api;

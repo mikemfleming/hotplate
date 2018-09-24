@@ -13,3 +13,7 @@ exports.request = ({
 		params,
 	}).then(res => res.data);
 }
+
+exports.respond = (res, data, ok = true) => {
+	res.send({ data, ok });
+}
