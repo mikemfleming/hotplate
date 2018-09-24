@@ -10,12 +10,43 @@ export class MyProvider extends Component {
 		super();
 		this.state = {
 			userName: '',
+			userId: '',
+			teamId: '',
+			shoutouts: [
+				{
+					giver: 'Ebru',
+					getter: 'Rui',
+					message: 'great job!'
+				},
+				{
+					giver: 'Ebru',
+					getter: 'Rui',
+					message: 'great job!'
+				},
+				{
+					giver: 'Ebru',
+					getter: 'Rui',
+					message: 'great job!'
+				},
+				{
+					giver: 'Ebru',
+					getter: 'Rui',
+					message: 'great job!'
+				},
+				{
+					giver: 'Ebru',
+					getter: 'Rui',
+					message: 'great job!'
+				},
+			],
 		}
     }
     
     componentWillMount () {
 		this.setState({
-			userName: window.stateData.userName
+			userName: window.stateData.userName,
+			userId: window.stateData.userId,
+			teamId: window.stateData.teamId,
 		});
 	}
 

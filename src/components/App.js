@@ -2,7 +2,11 @@
 import React from 'react';
 
 import NavBar from './NavBar';
+import Dashboard from './Dashboard';
 
 export default () => (
-	<NavBar />
+	<main>
+		<NavBar />
+		<Dashboard />
+	</main>
 );
