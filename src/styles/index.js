@@ -15,6 +15,7 @@ export const ProfileWrapper = styled.div`
 export const ShoutoutList = styled.div`
     float: ${props => props.profile ? 'right' : 'none'};
     width: 65%;
+    margin: 1rem auto;
 
     .shoutout-list__card {
         margin: 0 auto 1rem;

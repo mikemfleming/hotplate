@@ -1,12 +1,18 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
+import { MyContext } from '../context';
 import { Nav } from '../styles';
 
-export default () => (
+export default ({ match }) => (
 	<Nav>
-		<a>Shoutouts!</a>
-		<a className="active">Your Profile</a>
+		<Link to="/" className={match.isExact && 'active'}>Shoutouts!</Link>
+		<MyContext.Consumer>
+			{({ state }) => (
+				<Link className={!match.isExact && 'active'} to={`/u/${state.userId}`}>Your Profile</Link>
+			)}
+		</MyContext.Consumer>
 		<a href="/logout" className="logout">Logout</a>
 	</Nav>
 );
