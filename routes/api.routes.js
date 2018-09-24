@@ -25,52 +25,62 @@ api.get('/shoutouts', (req, res) => apiUtil.respond(res, [
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
     {
         giver: 'Ebru',
         getter: 'Rui',
-        message: 'great job from the server!'
+        message: 'great job from the server!',
+        giverAvatarUrl: 'https://www.readersdigest.ca/wp-content/uploads/sites/14/2011/01/4-ways-cheer-up-depressed-cat.jpg'
     },
 ]));
 

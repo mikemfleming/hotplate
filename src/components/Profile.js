@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 
 import { MyContext } from '../context';
-import { ShoutoutList, ProfileWrapper } from '../styles';
+import { ShoutoutList } from '../styles';
 
 import User from './User';
 import Shoutout from './Shoutout';
 
-export default () => (
-    <ProfileWrapper>
-        <User />
+export default ({ match }) => (
+    <div className="profile">
+        <User userId={match.params.userId}/>
         <ShoutoutList profile={true}>
             <MyContext.Consumer>
                 {({ state }) => {
@@ -18,5 +18,5 @@ export default () => (
                 }}
             </MyContext.Consumer>
         </ShoutoutList>
-    </ProfileWrapper>
+    </div>
 );

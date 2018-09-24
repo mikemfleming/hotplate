@@ -7,7 +7,7 @@ import { ShoutoutList } from '../styles';
 import Shoutout from './Shoutout';
 
 export default () => (
-    <ShoutoutList>
+    <ShoutoutList className="dashboard">
         <MyContext.Consumer>
             {({ state }) => {
                 return state.shoutouts.map(s => <Shoutout shoutout={s} />)

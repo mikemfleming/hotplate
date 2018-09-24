@@ -6,6 +6,17 @@ export const UserProfile = styled.div`
     padding: 1rem;
     width: 30%;
     float: left;
+
+    img {
+        width: 100%;
+    }
+`;
+
+export const AppWrapper = styled.div`
+    .dashboard,
+    .profile {
+        padding: 2rem;
+    }
 `;
 
 export const ProfileWrapper = styled.div`
@@ -15,7 +26,7 @@ export const ProfileWrapper = styled.div`
 export const ShoutoutList = styled.div`
     float: ${props => props.profile ? 'right' : 'none'};
     width: 65%;
-    margin: 1rem auto;
+    margin: 0 auto;
 
     .shoutout-list__card {
         margin: 0 auto 1rem;
@@ -27,6 +38,7 @@ export const ShoutoutList = styled.div`
 export const Nav = styled.nav`
     overflow: hidden;
     border-bottom: 5px solid black;
+    margin-bottom: 1rem;
 
     a {
         float: left;
