@@ -12,6 +12,8 @@ export class MyProvider extends Component {
 		this.state = {
 			userName: '',
 			userId: '',
+			userStatusText: '',
+			userAvatar: '',
 			teamId: '',
 			shoutouts: [],
 		}
@@ -30,6 +32,16 @@ export class MyProvider extends Component {
 			.then(res => res.data)
 			.then(({ data }) => {
 				this.setState({ shoutouts: data });
+			});
+
+		axios.get(`/api/users/${this.state.userId}`)
+			.then(res => res.data)
+			.then(({ data }) => {
+				// move this logic to the server
+				this.setState({
+					userStatusText: data.user.profile.status_text,
+					userAvatar: data.user.profile.image_original,
+				});
 			});
 	}
 

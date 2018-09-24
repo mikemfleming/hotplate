@@ -12,7 +12,11 @@ export default () => (
                 // current status lives here
                 // any meta about shoutouts
                 return (
-                    <h1>{state.userName}</h1>
+                    <React.Fragment>
+                        <img src={state.userAvatar}/>
+                        <h1>{state.userName}</h1>
+                        <h2>{state.userStatusText}</h2>
+                    </React.Fragment>
                 )
             }}
         </MyContext.Consumer>

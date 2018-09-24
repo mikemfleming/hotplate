@@ -37,9 +37,10 @@ function htmlTemplate (user) {
 }
 
 exports.root = (req, res) => {
-	// if (req.session.user) {
-	if (true) {
-		console.log('⭐️ req.session', req.session);
+	console.log('⭐️ req.session', req.session);
+	if (req.session.user) {
+	// if (true) {
+		// console.log('⭐️ req.session', req.session);
 		req.session.user = { name: 'Mike Fleming', id: 'UCTT63W6S', teamId: 'T0SU2LUKU' }
 		res.writeHead( 200, { "Content-Type": "text/html" } );
 		res.end(htmlTemplate(req.session.user));
