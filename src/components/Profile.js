@@ -13,8 +13,9 @@ export default ({ match }) => (
         <ShoutoutList profile={true}>
             <MyContext.Consumer>
                 {({ state }) => {
-                    // do some filtering here instead
-                    return state.shoutouts.map(s => <Shoutout shoutout={s} />)
+                    return state.shoutouts
+                        // .filter(s => s.giverId == state.userId)
+                        .map(s => <Shoutout shoutout={s} />)
                 }}
             </MyContext.Consumer>
         </ShoutoutList>
