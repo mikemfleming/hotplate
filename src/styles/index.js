@@ -1,12 +1,25 @@
 
 import styled from 'styled-components';
 
-export const ShoutoutList = styled.section`
+export const UserProfile = styled.div`
+    border: 5px solid black;
+    padding: 1rem;
+    width: 30%;
+    float: left;
+`;
+
+export const ProfileWrapper = styled.div`
+    padding: 2rem;
+`;
+
+export const ShoutoutList = styled.div`
+    float: ${props => props.profile ? 'right' : 'none'};
+    width: 65%;
+
     .shoutout-list__card {
-        margin: 1rem auto;
+        margin: 0 auto 1rem;
         border: 5px solid black;
         padding: 1rem;
-        width: 50%;
     }
 `;
 
@@ -31,5 +44,9 @@ export const Nav = styled.nav`
             background-color: black;
             color: white;
         }
-    }
+
+        &.logout {
+            float: right;
+        }
+    }x
 `;

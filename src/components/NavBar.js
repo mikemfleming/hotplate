@@ -7,6 +7,6 @@ export default () => (
 	<Nav>
 		<a>Shoutouts!</a>
 		<a className="active">Your Profile</a>
-		<a href="/logout">Logout</a>
+		<a href="/logout" className="logout">Logout</a>
 	</Nav>
 );
