@@ -33,5 +33,5 @@ in an S3 bucket. Prod configures a CloudFront distribution to cache files and pr
 support for HTTPS.
 
 ## CI/CD
-Merges to the develop branch deploy to the $DEV_BUCKET.
-Merges to the master branch deploy to the $PROD_BUCKET.
+* Merges to the develop branch deploy to the $DEV_BUCKET.
+* Merges to the master branch deploy to the $PROD_BUCKET.
