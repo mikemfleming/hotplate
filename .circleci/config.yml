@@ -1,0 +1,39 @@
+version: 2
+jobs:
+
+  build:
+    docker:
+      - image: circleci/node:10.13
+    working_directory: ~/app
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/tmp/workspace
+      - run: npm i
+      - run: npm run export
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - out
+
+  deploy_dev:
+    docker:
+      - image: cibuilds/aws
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run: aws s3 sync ~/app/out s3://$DEV_BUCKET --region $REGION
+
+workflows:
+  version: 2
+
+  build_and_deploy_dev:
+    jobs:
+      - build
+      - deploy_dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - develop
