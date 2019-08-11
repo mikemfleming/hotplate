@@ -1,2 +1,3 @@
 DEV_BUCKET=hotplate-dev
-PROD_BUCKET=hotplate-prod
+DEV_BUCKET_ARN=s3://$DEV_BUCKET
+REGION=us-east-1

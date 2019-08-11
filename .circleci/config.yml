@@ -15,6 +15,7 @@ jobs:
           root: ~/app
           paths:
             - out
+            - scripts
 
   deploy_dev:
     docker:
@@ -22,7 +23,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - run: aws s3 sync ~/app/out s3://$DEV_BUCKET --region $REGION
+      - run: source ~/app/scripts/config && aws s3 sync ~/app/out $DEV_BUCKET_ARN --region $REGION
 
 workflows:
   version: 2
