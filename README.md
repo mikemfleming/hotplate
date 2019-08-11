@@ -6,7 +6,9 @@ Boilerplate for static site builds with the following features:
 * CircleCI => CI/CD
 
 ## Getting Started
-This assumes you are running a Mac with NVM and Terraform already installed.
+This assumes you are running a Mac with the AWS cli,  NVM, and Terraform already installed and configured.
+You will also need to integrate your Hotplate with your CircleCI account and your CircleCI account with your
+AWS account. You'll want to create an IAM policy specific to the project or CircleCI.
 ```
 # update ./scripts/config
 vim ./scripts/config
