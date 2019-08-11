@@ -1,6 +1,0 @@
-CLIENT_ID=jingle
-CLIENT_SECRET=bells
-PORT=batman
-REDIS_URL=smells
-SESSION_SECRET=robin
-TEAM_ID=laid

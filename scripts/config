@@ -1,0 +1,2 @@
+DEV_BUCKET=hotplate-dev
+PROD_BUCKET=hotplate-prod

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+# gives this script your config
+source ./scripts/config
+
+ENV=$1
+
+case $ENV in
+	dev)
+		BUCKET_NAME=$DEV_BUCKET
+		;;
+	*)
+		echo 'Invalid $ENV'
+		exit 1
+		;;
+esac
+
+cd terraform
+terraform init
+
+terraform apply \
+	-var "website_bucket_name=$BUCKET_NAME"
